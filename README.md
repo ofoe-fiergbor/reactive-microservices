@@ -14,3 +14,17 @@
 4. Run the application: `docker-compose up -d`
 5. Access the api docs in your browser at `http://localhost:8080/openapi/swagger-ui.html`
 
+## 📂 Project Structure
+
+```
+- Api
+- Microservices
+    - Product Composite Service
+    - Product Service
+    - Recommendation Service
+    - Review Service
+- Spring Cloud
+    - Eureka Server
+    - Gateway
+- Util
+```

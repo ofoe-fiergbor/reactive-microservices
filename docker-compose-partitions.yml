@@ -110,10 +110,24 @@ services:
     image: rabbitmq:3.8.11-management
     mem_limit: 512m
     ports:
-      - 5672:5672
-      - 15672:15672
+      - "5672:5672"
+      - "15672:15672"
     healthcheck:
       test: ["CMD", "rabbitmqctl", "status"]
       interval: 5s
       timeout: 2s
       retries: 60
+
+  eureka:
+    build: spring-cloud/eureka-server
+    mem_limit: 512m
+    ports:
+      - "8761:8761"
+
+  gateway:
+    build: spring-cloud/gateway
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    mem_limit: 512m
+    ports:
+      - "8080:8080"
